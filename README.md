@@ -39,3 +39,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 > Node - v20.13.1
 
 > Crie uma conta no https://clerk.com/
+
+> Doc para gerar imagens https://unsplash.com/documentation
+
+> Para rodar o studio do drizzle-kit 
+    yarn drizzle-kit studio ou yarn drizzle-studio

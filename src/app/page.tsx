@@ -1,9 +1,14 @@
-import TypewriterTitle from "@/components/TypewriterTitle";
+import TypewriterTitle from "@/components/typewriterTitle";
 import { Button } from "@/components/ui/button";
+import { auth } from "@clerk/nextjs/server";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+
+    const { userId } = await auth();
+    const isValidatedUser = userId ? "dashboard" : 'sign-in'
+
     return (
         <div className="bg-gradient-to-r min-h-screen grainy from-rose-100 to-teal-100">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -20,7 +25,7 @@ export default function Home() {
                 </h2>
                 <div className="mt-8"></div>
                 <div className="flex justify-center">
-                    <Link href="/dashboard">
+                    <Link href={`/${isValidatedUser}`}>
                         <Button className="bg-green-600">Get Started <ArrowRight className="ml-2 w-5 h-5" strokeWidth={3} /></Button>
                     </Link>
                 </div>
